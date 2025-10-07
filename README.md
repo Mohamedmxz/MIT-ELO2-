@@ -18,4 +18,4 @@ The work involves collecting and cleaning weather data, performing exploratory d
 
 ## Author
 
-Developed individually as part of the **MIT Emerging Talent - Collaborative Data Science Projects (CDSP)** program.
+Developed individually as part of the **MIT Emerging Talent** program.
