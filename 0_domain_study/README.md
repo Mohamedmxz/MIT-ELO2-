@@ -1,36 +1,39 @@
+# Domain Study: Temperature and Rainfall Prediction in Sudan
 
-# Domain Research
+## Overview
 
-Temperature and Rainfall Data Analysis in Sudan
+This project focuses on analyzing historical temperature and rainfall data in Sudan to understand climate trends and build a machine learning model that can predict weather patterns for the coming years. Accurate predictions can support farmers, researchers, and policymakers in making data-driven decisions that improve food security and resource planning.
 
-## Project Idea
+## Problem Context
 
-This project focuses on analyzing **temperature and rainfall data** to understand weather patterns and climate changes in Sudan. The goal is to provide insights that can help farmers and communities plan agricultural activities more effectively and prepare for changing weather conditions.
+Sudan faces major challenges in predicting and managing climate conditions. There is limited access to reliable, organized weather data, making it difficult for local farmers and communities to plan agricultural activities effectively. Droughts and irregular rainfall patterns can severely impact crops and livelihoods.
 
-## Purpose and Motivation
+## Project Goal
 
-Agriculture in Sudan depends heavily on rainfall, and unexpected changes in temperature or rainfall patterns can lead to serious impacts on crops and food security. By studying the data, this project aims to identify trends and variations that can help predict what to expect in upcoming seasons.
+The goal of this project is to:
 
-The main motivation is to support **farmers and decision-makers** with reliable, data-driven insights that can guide their agricultural planning and resource management.
+- Collect and clean temperature and rainfall data from reliable sources.  
+- Analyze the data to identify trends and seasonal patterns.  
+- Build a **machine learning model** to predict temperature and rainfall for the next few years.  
+- Present results through **visualizations and a dashboard** that make the insights accessible and actionable.
 
-## Project Goals
+## Motivation
 
-- Collect and clean historical temperature and rainfall data for Sudan.  
-- Analyze the data to find patterns, averages, and anomalies.  
-- Visualize the results to make them easy to understand and use.  
-- Build a simple dashboard that shows rainfall and temperature trends across years and regions.  
+By providing data-driven weather insights, this project can:
 
-## Data Scope
+- Help **farmers** plan planting and harvesting more effectively.  
+- Support **researchers** in understanding long-term climate shifts.  
+- Assist **local authorities** in developing strategies for water management and disaster preparedness.
 
-The project will focus on:
+## Tools and Methods
 
-- Historical **temperature and rainfall datasets** from trusted open data sources (for example, NOAA or World Bank Climate Data).  
-- Covering **multiple years** and, if possible, different **regions in Sudan**.  
+- **Programming Language:** Python  
+- **Libraries:** Pandas, NumPy, Matplotlib, Scikit-learn  
+- **Approach:** Data collection, cleaning, analysis, modeling, and visualization
 
-The cleaned data will be the foundation for later analysis, visualizations, and a dashboard that highlights important weather patterns and predictions.
+## Expected Outcomes
 
-## Expected Impact
-
-By the end of the project, the results will help raise awareness and provide **useful climate insights** for Sudan’s agricultural sector. This can support more sustainable decision-making and help local communities adapt to climate change challenges.
-
----
+- A clean, well-structured dataset of Sudan’s temperature and rainfall data  
+- Predictive model estimating future temperature and rainfall trends  
+- Visualizations and an interactive dashboard to communicate results  
+- Insights that can serve as a foundation for future climate-related projects in Sudan
