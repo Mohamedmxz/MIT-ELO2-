@@ -40,4 +40,4 @@ I work only with copies of the raw data — **original datasets are never modifi
 | `cleaned_temperature.csv` | Clean, combined temperature dataset for all regions |
 | `cleaned_rainfall.csv` | Clean, combined rainfall dataset for all regions |
 
-These files are saved in the `/1_datasets/Cleaned_datasets` folder and will serve as inputs for data analysis in **Milestone 3 (Data Analysis)**.
+These files are saved in the [`/1_datasets/Cleaned_datasets`](../1_datasets/Cleaned_datasets/) folder and will serve as inputs for data analysis in **Milestone 3 (Data Analysis)**.
