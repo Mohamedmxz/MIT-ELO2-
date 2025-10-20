@@ -1,21 +1,29 @@
-# ELO2 Project: Temperature and Rainfall Data Analysis in Sudan
+# ELO2 Project: Temperature and Rainfall Prediction in Sudan
 
-This project analyzes **temperature and rainfall data** to understand weather patterns and climate changes in Sudan. The goal is to provide insights that help **farmers and communities** plan agricultural activities more effectively and prepare for climate variability.  
+This project focuses on building a **machine learning model** to **predict future temperature and rainfall patterns** across Sudan. The goal is to support **farmers and local communities** by providing early insights into long-term climate trends that affect agriculture and water management.
 
-The work involves collecting and cleaning weather data, performing exploratory data analysis, and creating **visualizations and a dashboard** to show long-term trends. In later stages, a **machine learning model** will be developed to **predict future temperature and rainfall patterns**, supporting data-driven decision-making in agriculture and climate planning.  
+The process involves collecting and cleaning NASA satellite data, analyzing historical climate trends, and preparing the data for predictive modeling. Visualizations and dashboards will highlight regional and temporal patterns, while the final model will forecast future values to guide climate adaptation and planning.
+
+---
 
 ## Current Progress
 
-- ✅ **Milestone 1 (Scoping & Planning):** Domain study completed  
-- 🔄 **Next Step:** Start data collection and documentation  
+- ✅ **Milestone 1 (Scoping & Planning):** Completed domain study and project plan  
+- ✅ **Milestone 2 (Data Collection):** Collected, cleaned, and merged NASA datasets  
+- 🔄 **Next Step:** Begin exploratory data analysis and visualization (Milestone 3)  
 
-### Tools
+---
+
+## Tools
 
 - **Python** (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn)  
-- **Jupyter Notebook** for analysis and exploration
+- **Jupyter Notebook** for analysis and exploration  
+- **GitHub Projects** for task tracking and progress management  
+
+
 
 ---
 
 ## Author
 
-Developed individually as part of the **MIT Emerging Talent** program.
+Developed individually by Mohamed Tilal as part of the **MIT Emerging Talent** program.
