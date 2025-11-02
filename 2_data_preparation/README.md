@@ -33,11 +33,22 @@ I work only with copies of the raw data — **original datasets are never modifi
    - Checked year coverage (1990–2024) for all regions
    - Verified that each dataset contains complete data for every year
 
+6. **Group by region and year**
+   - Averaged all numeric values by `REGION` and `YEAR` to ensure consistent granularity across both datasets.
+
+7. **Merge temperature and rainfall data**
+   - Combined the two datasets using `REGION` and `YEAR` as keys.
+   - The resulting dataset contains both rainfall and temperature variables in one table.
+
+8. **Clean up redundant columns**
+   - Removed unnecessary latitude and longitude columns `(LAT_RAIN, LON_RAIN, LAT_TEMP, LON_TEMP)` to simplify the dataset.
+
 ## Output Files
 
 | Output File | Description |
 |--------------|-------------|
 | `cleaned_temperature.csv` | Clean, combined temperature dataset for all regions |
 | `cleaned_rainfall.csv` | Clean, combined rainfall dataset for all regions |
+| `final_merged_dataset` | Combined dataset with both temperature and rainfall data, averaged by region and year |
 
-These files are saved in the [`/1_datasets/Cleaned_datasets`](../1_datasets/Cleaned_datasets/) folder and will serve as inputs for data analysis in **Milestone 3 (Data Analysis)**.
+The final dataset is saved in the [`/1_datasets/final_dataset`](../1_datasets/Final_dataset/) folder and will serve as input for data analysis in **Milestone 3 (Data Analysis)**.
