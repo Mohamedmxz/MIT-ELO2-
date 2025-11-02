@@ -2,7 +2,8 @@
 
 This project focuses on building a **machine learning model** to **predict future temperature and rainfall patterns** across Sudan. The goal is to support **farmers and local communities** by providing early insights into long-term climate trends that affect agriculture and water management.
 
-The process involves collecting and cleaning NASA satellite data, analyzing historical climate trends, and preparing the data for predictive modeling. Visualizations and dashboards will highlight regional and temporal patterns, while the final model will forecast future values to guide climate adaptation and planning, read more at [`0_domain_study`](../MIT-ELO2-/0_domain_study/README.md)
+The process involves collecting and cleaning NASA satellite data, analyzing historical climate trends, and preparing the data for predictive modeling. Visualizations and dashboards will highlight regional and temporal patterns, while the final model will forecast future values to guide climate adaptation and planning.
+*Read more at [`0_domain_study`](../MIT-ELO2-/0_domain_study/README.md)*
 
 ---
 
