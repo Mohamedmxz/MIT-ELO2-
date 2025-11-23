@@ -1,0 +1,18 @@
+{
+  "ridge_raw": {
+    "alpha": 1.0
+  },
+  "ridge_log1p": {
+    "alpha": 10.0
+  },
+  "rf_raw": {
+    "n_estimators": 200,
+    "max_depth": 10,
+    "max_features": 0.5
+  },
+  "xgb_log1p": {
+    "n_estimators": 200,
+    "max_depth": 6,
+    "learning_rate": 0.1
+  }
+}
