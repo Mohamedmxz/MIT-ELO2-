@@ -19,6 +19,14 @@ Each dataset includes **region**, **latitude**, **longitude**, **month**, and **
 
 ---
 
+## Non-technical explanation of findings
+
+The data show a clear seasonal rhythm in both temperature and rainfall, with temperature following a very steady yearly pattern that makes it much easier to estimate from month to month, while rainfall **although seasonal** is far more irregular and harder to pin down precisely. The model generally gives better guidance than simple approaches like comparing to last month or the same month in a previous year, especially for temperature, where the regular cycle provides a strong signal the model can follow. Rainfall still benefits from the modeling, but its natural ups and downs mean unusual dry or wet months remain difficult to predict, and long stretches of future climate are even harder to anticipate. Some uncertainty comes from gaps or noise in the measurements, differences in how well certain areas are monitored, and the fact that unusual climate years don’t always resemble past patterns. The model also works with monthly data, so short intense events—like sudden heatwaves—get smoothed out and won’t appear clearly in the forecasts. Overall, the results are best treated as helpful guidance rather than exact predictions: temperature estimates can be used with more confidence, rainfall should be read more cautiously, and planning should still rely on seasonal patterns, regular updates, and local knowledge, especially where data is limited or conditions vary a lot
+
+*Data analysis Located in the folder [`4_data_analysis`](../MIT-ELO2-/4_data_analysis/). Full analysis summary in [`Analysis_README`](../MIT-ELO2-/4_data_analysis/README.md)*
+
+---
+
 ## Limitations
 
 The data are based on satellite estimates that may differ slightly from ground measurements. Regional averaging simplifies analysis but can mask local variations. Monthly and annual data capture long-term climate patterns, not short-term weather events. The findings reveal correlations, not causation, and future predictions depend on past patterns, which may change unexpectedly.
