@@ -109,7 +109,7 @@ The primary goal is to understand how rainfall and temperature relate across tim
 - Lag-based features (1, 2, 3, 12 months) showed strong predictive contribution.
 - Temperature and rainfall interacted seasonally in ways the model captured clearly.
 - Expanding-window CV ensured a correct evaluation of real-world forecasting behavior.
-- Selected model achieved stable performance across regions with no major overfitting.
+- Selected model achieved stable performance across regions for temperature by R2 of 0.9 but for rainfall only 3 region models got good results (Central, South and west) the other 2 (East and North) got bad R2 of 0.4 and 0.5 I didn't figure it out and made this as a goal to achieve moving forward.
 - SHAP confirmed that recent rainfall values are the dominant predictor.
 
 ---
@@ -131,8 +131,8 @@ Even though the dataset was structurally clean, the analysis still has important
 4. **Potential for additional feature engineering**  
    - Climate indices (ENSO, NAO), spatial features, or satellite data could improve predictions.
 
-5. **No use of advanced temporal models**  
-   - LSTMs, Transformers, or Prophet could be explored for more complex seasonality.
+5. **Large variation in precipitation model performance across regions**
+   - Some regions reached acceptable R2 values near 0.8, but two regions dropped to 0.4 and 0.5. This inconsistency shows that the current features are not capturing regional rainfall dynamics well enough.
 
 ---
 
@@ -157,6 +157,9 @@ A few paths for deeper or more advanced climate modeling include:
   - Prediction intervals  
   - Quantile regression  
 - **Add more lagged, rolling, or seasonal decomposition features**  
+- **Investigate why precipitation models perform poorly in specific regions**
+  - Compare regional distributions, missing patterns, seasonality, and local climate behavior.
+  - Test additional lag features or region specific models with enriched inputs.
 
 ---
 
