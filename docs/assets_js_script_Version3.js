@@ -12,8 +12,13 @@ let temperatureChart = null;
 let rawRows = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('refresh-btn').addEventListener('click', loadData);
-  document.getElementById('search-input').addEventListener('input', applyFilter);
+  // Guard — ensure elements exist before attaching listeners
+  const refreshBtn = document.getElementById('refresh-btn');
+  if (refreshBtn) refreshBtn.addEventListener('click', loadData);
+
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) searchInput.addEventListener('input', applyFilter);
+
   document.querySelectorAll('.predictions-table th.sortable').forEach(th => {
     th.addEventListener('click', () => sortTableBy(th.dataset.key));
   });
@@ -23,8 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function createEmptyCharts(){
-  const rCtx = document.getElementById('rainfallChart').getContext('2d');
-  const tCtx = document.getElementById('temperatureChart').getContext('2d');
+  const rCanvas = document.getElementById('rainfallChart');
+  const tCanvas = document.getElementById('temperatureChart');
+  if (!rCanvas || !tCanvas) return;
+
+  const rCtx = rCanvas.getContext('2d');
+  const tCtx = tCanvas.getContext('2d');
 
   rainfallChart = new Chart(rCtx, {
     type: 'line',
@@ -32,7 +41,7 @@ function createEmptyCharts(){
     options: {
       responsive:true,
       plugins:{ legend:{ display:true }, tooltip:{ mode:'index', intersect:false } },
-      scales:{ x:{ display:true }, y:{ display:true, title:{display:true, text:'mm'} } }
+      scales:{ x:{ display:true, title:{display:true, text:'Date'} }, y:{ display:true, title:{display:true, text:'mm'} } }
     }
   });
 
@@ -42,7 +51,7 @@ function createEmptyCharts(){
     options: {
       responsive:true,
       plugins:{ legend:{ display:true }, tooltip:{ mode:'index', intersect:false } },
-      scales:{ x:{ display:true }, y:{ display:true, title:{display:true, text:'°C'} } }
+      scales:{ x:{ display:true, title:{display:true, text:'Date'} }, y:{ display:true, title:{display:true, text:'°C'} } }
     }
   });
 }
@@ -58,7 +67,18 @@ async function loadData(){
     buildAggregatedCharts(rawRows);
   } catch(err){
     console.error(err);
-    alert('Could not load predictions CSV. Check path and CORS. Path: ' + CSV_PATH);
+    // Show a non-blocking notice on the page instead of alert for better UX
+    const noteId = 'data-load-note';
+    let note = document.getElementById(noteId);
+    if (!note) {
+      note = document.createElement('div');
+      note.id = noteId;
+      note.style.margin = '12px 0';
+      note.style.color = '#b44b2a';
+      const visSection = document.getElementById('visualizations');
+      if (visSection) visSection.insertBefore(note, visSection.firstChild);
+    }
+    note.textContent = 'Could not load predictions CSV. Check path and CORS. Path: ' + CSV_PATH;
   } finally {
     setLoading(false);
   }
@@ -92,6 +112,7 @@ function parseCSV(text){
 
   const rows = [];
   for(let i=1;i<lines.length;i++){
+    // Simple split: if your CSV can include commas in fields, you may want a robust CSV parser.
     const cols = lines[i].split(',').map(c => c.trim());
     const row = {
       date: cols[idxDate] || '',
@@ -105,6 +126,9 @@ function parseCSV(text){
 }
 
 function buildAggregatedCharts(rows){
+  if (!rainfallChart || !temperatureChart) return;
+
+  // Group by date and average values (since CSV may contain multiple regions per date)
   const map = new Map();
   for(const r of rows){
     const key = r.date;
@@ -122,12 +146,16 @@ function buildAggregatedCharts(rows){
   })).sort((a,b) => new Date(a.date) - new Date(b.date));
 
   const labels = aggregated.map(d => d.date);
+  const rainfallData = aggregated.map(d => Number(d.rainfall.toFixed(6)));
+  const tempData = aggregated.map(d => Number(d.temp.toFixed(4)));
+
+  // Update charts
   rainfallChart.data.labels = labels;
-  rainfallChart.data.datasets[0].data = aggregated.map(d => Number(d.rainfall.toFixed(6)));
+  rainfallChart.data.datasets[0].data = rainfallData;
   rainfallChart.update();
 
   temperatureChart.data.labels = labels;
-  temperatureChart.data.datasets[0].data = aggregated.map(d => Number(d.temp.toFixed(4)));
+  temperatureChart.data.datasets[0].data = tempData;
   temperatureChart.update();
 }
 
@@ -148,10 +176,11 @@ function renderTable(rows){
   applyFilter();
 }
 
+// Search / Filter
 function applyFilter(){
-  const input = document.getElementById('search-input');
-  if(!input) return;
-  const q = input.value.trim().toLowerCase();
+  const qInput = document.getElementById('search-input');
+  if(!qInput) return;
+  const q = qInput.value.trim().toLowerCase();
   const tbody = document.getElementById('predictions-body');
   if(!tbody) return;
   Array.from(tbody.rows).forEach(row => {
@@ -160,6 +189,7 @@ function applyFilter(){
   });
 }
 
+// Sorting
 let currentSort = { key: null, asc: true };
 function sortTableBy(key){
   currentSort.asc = (currentSort.key === key) ? !currentSort.asc : true;
@@ -180,4 +210,5 @@ function sortTableBy(key){
   renderTable(rawRows);
 }
 
+// small HTML escape
 function escapeHtml(s){ return (s+"").replace(/[&<>"'`=\/]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#96;','=':'&#61;'}[c]; }); }
