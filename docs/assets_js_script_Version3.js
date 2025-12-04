@@ -1,6 +1,7 @@
 // Script for loading CSV, building charts and filling table
-// Configuration
-const CSV_PATH = "/4_data_analysis/model_datasets/final_forecasts_to_2030.csv";
+// Use raw.githubusercontent.com URL to load the CSV directly from main branch
+const CSV_PATH = "https://raw.githubusercontent.com/Mohamedmxz/MIT-ELO2-/main/4_data_analysis/model_datasets/final_forecasts_to_2030.csv";
+
 const dateKeyCandidates = ['date','DATE','Date'];
 const regionKeyCandidates = ['region','REGION','Region'];
 const rainfallKeyCandidates = ['predicted_rainfall','Predicted_Rainfall','Predicted_Rainfall'];
@@ -11,21 +12,13 @@ let temperatureChart = null;
 let rawRows = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Wire up refresh button and search/sorting
   document.getElementById('refresh-btn').addEventListener('click', loadData);
   document.getElementById('search-input').addEventListener('input', applyFilter);
-
-  // Sorting
   document.querySelectorAll('.predictions-table th.sortable').forEach(th => {
-    th.addEventListener('click', () => {
-      const key = th.dataset.key;
-      sortTableBy(key);
-    });
+    th.addEventListener('click', () => sortTableBy(th.dataset.key));
   });
 
-  // Init empty charts
   createEmptyCharts();
-  // Initial load
   loadData();
 });
 
@@ -65,7 +58,7 @@ async function loadData(){
     buildAggregatedCharts(rawRows);
   } catch(err){
     console.error(err);
-    alert('Could not load predictions CSV. Check path and CORS. Path used: ' + CSV_PATH);
+    alert('Could not load predictions CSV. Check path and CORS. Path: ' + CSV_PATH);
   } finally {
     setLoading(false);
   }
@@ -73,15 +66,12 @@ async function loadData(){
 
 function setLoading(isLoading){
   const btn = document.getElementById('refresh-btn');
-  btn.disabled = isLoading;
-  btn.textContent = isLoading ? 'Loading...' : 'Refresh Data';
+  if(btn){ btn.disabled = isLoading; btn.textContent = isLoading ? 'Loading...' : 'Refresh Data'; }
 }
 
 function parseCSV(text){
-  // Basic CSV parsing (assumes no multiline fields or escaped commas)
   const lines = text.trim().split(/\r?\n/).filter(Boolean);
   if(lines.length === 0) { rawRows = []; return; }
-
   const headers = lines[0].split(',').map(h => h.trim());
   const mapHeaderIndex = (candidates) => {
     for(const cand of candidates){
@@ -97,7 +87,7 @@ function parseCSV(text){
   const idxTemp = mapHeaderIndex(temperatureKeyCandidates);
 
   if(idxDate < 0 || idxRain < 0 || idxTemp < 0){
-    throw new Error('CSV missing expected columns. Expected date, predicted rainfall and predicted temperature columns.');
+    throw new Error('CSV missing expected columns.');
   }
 
   const rows = [];
@@ -115,7 +105,6 @@ function parseCSV(text){
 }
 
 function buildAggregatedCharts(rows){
-  // Group by date and average values (since CSV may contain multiple regions per date)
   const map = new Map();
   for(const r of rows){
     const key = r.date;
@@ -133,21 +122,18 @@ function buildAggregatedCharts(rows){
   })).sort((a,b) => new Date(a.date) - new Date(b.date));
 
   const labels = aggregated.map(d => d.date);
-  const rainfallData = aggregated.map(d => Number(d.rainfall.toFixed(6)));
-  const tempData = aggregated.map(d => Number(d.temp.toFixed(4)));
-
-  // Update charts
   rainfallChart.data.labels = labels;
-  rainfallChart.data.datasets[0].data = rainfallData;
+  rainfallChart.data.datasets[0].data = aggregated.map(d => Number(d.rainfall.toFixed(6)));
   rainfallChart.update();
 
   temperatureChart.data.labels = labels;
-  temperatureChart.data.datasets[0].data = tempData;
+  temperatureChart.data.datasets[0].data = aggregated.map(d => Number(d.temp.toFixed(4)));
   temperatureChart.update();
 }
 
 function renderTable(rows){
   const tbody = document.getElementById('predictions-body');
+  if(!tbody) return;
   tbody.innerHTML = '';
   for(const r of rows){
     const tr = document.createElement('tr');
@@ -159,20 +145,21 @@ function renderTable(rows){
     `;
     tbody.appendChild(tr);
   }
-  applyFilter(); // ensure filter is applied after render
+  applyFilter();
 }
 
-// Search / Filter
 function applyFilter(){
-  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const input = document.getElementById('search-input');
+  if(!input) return;
+  const q = input.value.trim().toLowerCase();
   const tbody = document.getElementById('predictions-body');
+  if(!tbody) return;
   Array.from(tbody.rows).forEach(row => {
     const text = row.textContent.toLowerCase();
     row.style.display = q === '' || text.includes(q) ? '' : 'none';
   });
 }
 
-// Sorting
 let currentSort = { key: null, asc: true };
 function sortTableBy(key){
   currentSort.asc = (currentSort.key === key) ? !currentSort.asc : true;
@@ -193,5 +180,4 @@ function sortTableBy(key){
   renderTable(rawRows);
 }
 
-// small HTML escape
 function escapeHtml(s){ return (s+"").replace(/[&<>"'`=\/]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#96;','=':'&#61;'}[c]; }); }

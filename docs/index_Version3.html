@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ELO2 Machine Learning Project — Temperature & Rainfall Predictions (Sudan)</title>
+
+  <!-- Ensure relative links resolve under the repository site path -->
+  <base href="/MIT-ELO2-/" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+
+  <!-- Styles (relative, inside docs/assets/...) -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <meta name="description" content="ELO2 Machine Learning Project — Temperature and Rainfall prediction in Sudan. Interactive charts and full predictions table loaded from CSV." />
+</head>
+<body>
+
+  <!-- Sticky Nav -->
+  <header class="site-header" id="top">
+    <nav class="nav">
+      <div class="brand">
+        <a href="#top" class="brand-link">
+          <span class="brand-title">ELO2 Climate Predictions</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#visualizations">Visualizations</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#communication">Communication Strategy</a></li>
+        <li><a href="#predictions">Predictions Table</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <h1 class="hero-title">ELO2 Machine Learning Project</h1>
+      <p class="hero-sub">Temperature and Rainfall Prediction in Sudan — applying machine learning to analyze long-term climate patterns and inform agricultural and water management decisions.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#predictions">View Predictions</a>
+        <a class="btn ghost" href="#visualizations">Explore Visuals</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ... the rest of your content unchanged ... -->
+
+    <section id="visualizations" class="section card">
+      <div class="section-header">
+        <h2>Visualizations</h2>
+        <button id="refresh-btn" class="btn">Refresh Data</button>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Predicted Rainfall Over Time</h3>
+          <canvas id="rainfallChart" aria-label="Predicted rainfall over time" role="img"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>Predicted Temperature Over Time</h3>
+          <canvas id="temperatureChart" aria-label="Predicted temperature over time" role="img"></canvas>
+        </div>
+      </div>
+
+      <div class="figures">
+        <h3>Exploratory Figures</h3>
+        <div class="fig-grid">
+          <figure>
+            <img src="https://raw.githubusercontent.com/Mohamedmxz/MIT-ELO2-/main/3_data_exploration/Figures/avg_monthly_rain%26tem.png" alt="Average monthly rain and temperature" />
+            <figcaption>Average monthly rainfall & temperature</figcaption>
+          </figure>
+          <figure>
+            <img src="https://raw.githubusercontent.com/Mohamedmxz/MIT-ELO2-/main/3_data_exploration/Figures/annual_temperature_trends.png" alt="Annual temperature trends" />
+            <figcaption>Annual temperature trends</figcaption>
+          </figure>
+          <figure>
+            <img src="https://raw.githubusercontent.com/Mohamedmxz/MIT-ELO2-/main/3_data_exploration/Figures/annual_rainfall_trends.png" alt="Annual rainfall trends" />
+            <figcaption>Annual rainfall trends</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ... rest of content ... -->
+
+  </main>
+
+  <!-- Scripts (relative path to docs/assets/js/script.js) -->
+  <script src="assets/js/script.js" defer></script>
+</body>
+</html>
