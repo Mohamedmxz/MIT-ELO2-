@@ -103,7 +103,7 @@ The primary goal is to understand how rainfall and temperature relate across tim
 
 ---
 
-## ## ✅ Final Results (Summary)
+## ✅ Final Results (Summary)
 
 - After evaluating Ridge Regression, Random Forest, and XGBoost using grouped expanding-window cross-validation, Random Forest consistently achieved the highest performance. The final selected model obtained R² = 0.847 (rainfall) and R² = 0.921 (temperature) on the hold-out test set.
 - Lag-based features (1, 2, 3, 12 months) showed strong predictive contribution.
@@ -114,7 +114,7 @@ The primary goal is to understand how rainfall and temperature relate across tim
 
 ---
 
-## ## ⚠️ Flaws & Limitations
+## ⚠️ Flaws & Limitations
 
 Even though the dataset was structurally clean, the analysis still has important limitations:
 
@@ -136,7 +136,7 @@ Even though the dataset was structurally clean, the analysis still has important
 
 ---
 
-## ## 🚀 Possible Next Steps to Continue the Analysis
+## 🚀 Possible Next Steps to Continue the Analysis
 
 A few paths for deeper or more advanced climate modeling include:
 
