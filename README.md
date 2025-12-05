@@ -5,15 +5,15 @@ Short project tagline: Data-driven analysis and forecasting of temperature and r
 Table of Contents
 
 - [Sudan Climate Analysis — Temperature \& Rainfall (ELO2)](#sudan-climate-analysis--temperature--rainfall-elo2)
-  - [Research Question and Overview](#research-question-and-overview)
-  - [Motivation \& Goals](#motivation--goals)
-  - [Repository structure](#repository-structure)
-  - [Modeling the Climate Domain](#modeling-the-climate-domain)
-  - [Non-technical explanation of findings](#non-technical-explanation-of-findings)
-  - [Limitations of the Project](#limitations-of-the-project)
-  - [Future Research Directions](#future-research-directions)
-  - [Communicating the Results](#communicating-the-results)
-  - [Contact](#contact)
+- [Research Question and Overview](#research-question-and-overview)
+- [Motivation \& Goals](#motivation--goals)
+- [Repository structure](#repository-structure)
+- [Modeling the Climate Domain](#modeling-the-climate-domain)
+- [Non-technical explanation of findings](#non-technical-explanation-of-findings)
+- [Limitations of the Project](#limitations-of-the-project)
+- [Future Research Directions](#future-research-directions)
+- [Communicating the Results](#communicating-the-results)
+- [Contact](#contact)
 
 ---
 
