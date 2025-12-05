@@ -5,15 +5,15 @@ Short project tagline: Data-driven analysis and forecasting of temperature and r
 Table of Contents
 
 - [Sudan Climate Analysis — Temperature \& Rainfall (ELO2)](#sudan-climate-analysis--temperature--rainfall-elo2)
-- [Research Question and Overview](#research-question-and-overview)
-- [Motivation \& Goals](#motivation--goals)
-- [Repository structure](#repository-structure)
-- [Modeling the Climate Domain](#modeling-the-climate-domain)
-- [Non-technical explanation of findings](#non-technical-explanation-of-findings)
-- [Limitations of the Project](#limitations-of-the-project)
-- [Future Research Directions](#future-research-directions)
-- [Communicating the Results](#communicating-the-results)
-- [Contact](#contact)
+  - [Research Question and Overview](#research-question-and-overview)
+  - [Motivation \& Goals](#motivation--goals)
+  - [Repository structure](#repository-structure)
+  - [Modeling the Climate Domain](#modeling-the-climate-domain)
+  - [Non-technical explanation of findings](#non-technical-explanation-of-findings)
+  - [Limitations of the Project](#limitations-of-the-project)
+  - [Future Research Directions](#future-research-directions)
+  - [Communicating the Results](#communicating-the-results)
+  - [Contact](#contact)
 
 ---
 
@@ -52,13 +52,13 @@ I divided Sudan into five regions—North, Central, East, West, and South—each
 
 Each dataset includes **region**, **latitude**, **longitude**, **month**, and **annual average**, creating a unified structure that supports trend analysis and machine learning prediction. This design allows exploration of how temperature and rainfall interact across space and time, forming a foundation for accurate climate forecasting.
 
-*Data cleaning and preparation Located in the folder [`2_data_preparation`](../MIT-ELO2-/2_data_preparation/)*
+*Data cleaning and preparation Located in the folder [`2_data_preparation`](/2_data_preparation/)*
 
 ## Non-technical explanation of findings
 
 The data show a clear seasonal rhythm in both temperature and rainfall, with temperature following a very steady yearly pattern that makes it much easier to estimate from month to month, while rainfall **although seasonal** is far more irregular and harder to pin down precisely. The model generally gives better guidance than simple approaches like comparing to last month or the same month in a previous year, especially for temperature, where the regular cycle provides a strong signal the model can follow. Rainfall still benefits from the modeling, but its natural ups and downs mean unusual dry or wet months remain difficult to predict, and long stretches of future climate are even harder to anticipate. Some uncertainty comes from gaps or noise in the measurements, differences in how well certain areas are monitored, and the fact that unusual climate years don’t always resemble past patterns. The model also works with monthly data, so short intense events—like sudden heatwaves—get smoothed out and won’t appear clearly in the forecasts. Overall, the results are best treated as helpful guidance rather than exact predictions: temperature estimates can be used with more confidence, rainfall should be read more cautiously, and planning should still rely on seasonal patterns, regular updates, and local knowledge, especially where data is limited or conditions vary a lot
 
-*Data analysis Located in the folder [`4_data_analysis`](../MIT-ELO2-/4_data_analysis/). Full analysis summary in [`Analysis_README`](../MIT-ELO2-/4_data_analysis/README.md)*
+*Data analysis Located in the folder [`4_data_analysis`](/4_data_analysis/). Full analysis summary in [`Analysis_README`](/4_data_analysis/README.md)*
 
 ## Limitations of the Project
 
