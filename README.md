@@ -39,7 +39,8 @@ This project examines historical temperature and rainfall data for five regions 
 - [`2_data_preparation/`](/2_data_preparation/) — Notebooks and scripts used to clean, standardize, merge, and validate the data.
 - [`3_data_exploration/`](/3_data_exploration/) — EDA notebooks, plots, and summary statistics.
 - [`4_data_analysis/`](/4_data_analysis/) — Modeling notebooks, experiments, and evaluation artifacts.
-- [`5_communication_strategy/`](/5_communication_strategy/) — Presentation, dashboard ideas and communication materials.
+- [`5_communication_strategy/`](/5_communication_strategy/) — Dashboard ideas and communication materials.
+- [`6_final_presentation/`](/6_final_presentation/) — Project final presentation
 - [`Retrospective/`](/Retrospective/) — Project retrospective notes.
 - [`docs/`](/docs/) — (optional) place to store GitHub pages website files.
 - [`LICENSE`](/LICENSE) — Project license.
